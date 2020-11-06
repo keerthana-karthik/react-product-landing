@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import styles from "./App.module.css";
 
 function App() {
   return (
-    <div className="App">
-      Test
+    <div className={styles["Bg-Blue"]}>
+      Test1
     </div>
   );
 }
