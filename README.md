@@ -15,3 +15,13 @@ To create build for Prod
 To test
 ### `npm test`
 
+Already included part of  Create React App
+
+EsLint for linting 
+Jest for testing 
+CSS modules for className collisions
+
+
+husky makes it possible to use githooks as if they are npm scripts.
+lint-staged allows us to run scripts on staged files in git. See this blog post about lint-staged to learn more about it.
+prettier is the JavaScript formatter we will run before commits.
