@@ -32,3 +32,6 @@ npm install @types/react-router
 npm install @types/react-router-dom
 
 Font Awesome's entire /webfonts folder and the /css/all.css into your project’s static assets directory for icons
+
+For HTTP
+npm install axios

@@ -59,7 +59,10 @@ class MainContainer extends Component {
             </button>
             <div className={indexclasses.letterSpacing4}>
               <b>
-                <img src="/WS.png" className={mainClasses.imgLogo}></img>
+                <img
+                  src="https://res.cloudinary.com/imagesforwebpage/image/upload/v1604768585/WS_r65ahh.png"
+                  className={mainClasses.imgLogo}
+                ></img>
                 <br />
                 Williams-Sonoma
               </b>
