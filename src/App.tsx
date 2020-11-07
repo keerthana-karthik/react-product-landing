@@ -1,8 +1,13 @@
 import React from "react";
-import styles from "./App.module.css";
+import { BrowserRouter } from "react-router-dom";
+import MainContainer from "./containers/main-container/MainContainer";
 
 function App() {
-  return <div className={styles["Bg-Blue"]}>Testing Husky</div>;
+  return (
+    <BrowserRouter basename="/product-landing">
+      <MainContainer></MainContainer>
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -1,0 +1,750 @@
+/*  Style Form Elements :: Start */
+.styleInput {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+.styleSelect {
+  padding: 9px 0;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.styleDropdownClick,
+.styleDropdownHover {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.styleDropdownHover:hover .styleDropdownContent {
+  display: block;
+}
+
+.styleDropdownHover:first-child,
+.styleDropdownClick:hover {
+  background-color: #ccc;
+  color: #000;
+}
+
+.styleDropdownHover:hover > .styleButton:first-child,
+.styleDropdownClick:hover > .styleButton:first-child {
+  background-color: #ccc;
+  color: #000;
+}
+
+.styleDropdownContent {
+  cursor: auto;
+  color: #000;
+  background-color: #fff;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.styleCheck,
+.styleRadio {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 6px;
+}
+
+/* Button */
+
+.styleButton {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer !important;
+  white-space: nowrap;
+  border-radius: 16px;
+  box-shadow: 0 0 2em rgba(0, 0, 0, 0.3);
+}
+
+.styleButton:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
+.styleButton:hover {
+  color: #000 !important;
+  background-color: #fff !important;
+}
+.styleButton:focus {
+  outline: none;
+}
+
+/* Button */
+
+/* Anchor */
+
+.styleAnchor {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: rgb(114, 105, 58);
+  background-color: #fff !important;
+  text-align: center;
+  cursor: pointer !important;
+  white-space: nowrap;
+}
+
+.styleAnchor:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+å .styleAnchor:hover {
+  color: #000 !important;
+}
+.styleAnchor:focus {
+  outline: none;
+}
+
+/* Anchor */
+
+button,
+input,
+select,
+textarea,
+optgroup {
+  font: inherit;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*  Style Form Elements :: End  */
+
+/* Position Elements :: Start */
+
+.positionTop,
+.positionBottom {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.positionTop {
+  top: 0;
+}
+
+.positionBottom {
+  bottom: 0;
+}
+
+.positionOverlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.positionDisplayContainer {
+  position: relative;
+}
+
+.positionDisplayContainer:hover .positionDisplayHover {
+  display: block;
+}
+
+.positionDisplayContainer:hover span.positionDisplayHover {
+  display: inline-block;
+}
+
+.positionDisplayTopleft {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.positionDisplayTopright {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.positionDisplayBottomleft {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.positionDisplayBottomright {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.positionDisplayMiddle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.positionDisplayLeft {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(-0%, -50%);
+}
+
+.positionDisplayRight {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%);
+}
+
+.positionDisplayTopmiddle {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+}
+
+.positionDisplayBottommiddle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+}
+
+.positionDisplayContainer:hover .positionDisplayHover {
+  display: block;
+}
+
+.positionDisplayContainer:hover span.positionDisplayHover {
+  display: inline-block;
+}
+
+.positionDisplayHover {
+  display: none;
+}
+
+.positionDisplayPosition {
+  position: absolute;
+}
+
+.positionLeft {
+  float: left !important;
+}
+
+.positionRight {
+  float: right !important;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+/* Position Elements :: Start */
+
+/* Responsive Grid :: Start */
+
+.responsiveDisplayHover {
+  display: none;
+}
+
+.responsiveContainer:after,
+.responsiveContainer:before,
+.responsiveRow:after,
+.responsiveRow:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.responsiveContainer {
+  padding: 0.01em 16px;
+}
+
+.responsiveCol {
+  float: left;
+  width: 100%;
+}
+
+.responsiveCol.s1 {
+  width: 8.33333%;
+}
+
+.responsiveCol.s2 {
+  width: 16.66666%;
+}
+
+.responsiveCol.s3 {
+  width: 24.99999%;
+}
+
+.responsiveCol.s4 {
+  width: 33.33333%;
+}
+
+.responsiveCol.s5 {
+  width: 41.66666%;
+}
+
+.responsiveCol.s6 {
+  width: 49.99999%;
+}
+
+.responsiveCol.s7 {
+  width: 58.33333%;
+}
+
+.responsiveCol.s8 {
+  width: 66.66666%;
+}
+
+.responsiveCol.s9 {
+  width: 74.99999%;
+}
+
+.responsiveCol.s10 {
+  width: 83.33333%;
+}
+
+.responsiveCol.s11 {
+  width: 91.66666%;
+}
+
+.responsiveCol.s12 {
+  width: 99.99999%;
+}
+
+@media (min-width: 601px) {
+  .responsiveCol.m1 {
+    width: 8.33333%;
+  }
+
+  .responsiveCol.m2 {
+    width: 16.66666%;
+  }
+
+  .responsiveCol.m3,
+  .responsiveQuarter {
+    width: 24.99999%;
+  }
+
+  .responsiveCol.m4,
+  .responsiveThird {
+    width: 33.33333%;
+  }
+
+  .responsiveCol.m5 {
+    width: 41.66666%;
+  }
+
+  .responsiveCol.m6,
+  .responsiveHalf {
+    width: 49.99999%;
+  }
+
+  .responsiveCol.m7 {
+    width: 58.33333%;
+  }
+
+  .responsiveCol.m8,
+  .responsiveTwothird {
+    width: 66.66666%;
+  }
+
+  .responsiveCol.m9,
+  .responsiveThreequarter {
+    width: 74.99999%;
+  }
+
+  .responsiveCol.m10 {
+    width: 83.33333%;
+  }
+
+  .responsiveCol.m11 {
+    width: 91.66666%;
+  }
+
+  .responsiveCol.m12 {
+    width: 99.99999%;
+  }
+}
+
+@media (min-width: 993px) {
+  .responsiveCol.l1 {
+    width: 8.33333%;
+  }
+
+  .responsiveCol.l2 {
+    width: 16.66666%;
+  }
+
+  .responsiveCol.l3 {
+    width: 24.99999%;
+  }
+
+  .responsiveCol.l4 {
+    width: 33.33333%;
+  }
+
+  .responsiveCol.l5 {
+    width: 41.66666%;
+  }
+
+  .responsiveCol.l6 {
+    width: 49.99999%;
+  }
+
+  .responsiveCol.l7 {
+    width: 58.33333%;
+  }
+
+  .responsiveCol.l8 {
+    width: 66.66666%;
+  }
+
+  .responsiveCol.l9 {
+    width: 74.99999%;
+  }
+
+  .responsiveCol.l10 {
+    width: 83.33333%;
+  }
+
+  .responsiveCol.l11 {
+    width: 91.66666%;
+  }
+
+  .responsiveCol.l12 {
+    width: 99.99999%;
+  }
+}
+
+/* Responsive Grid :: End */
+
+/* Font Awesome :: START */
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.faShoppingCart:before {
+  content: "\f07a";
+}
+
+.faSearch:before {
+  content: "\f002";
+}
+
+.faRemove:before,
+.faClose:before,
+.faTimes:before {
+  content: "\f00d";
+}
+
+.faNavicon:before,
+.faReorder:before,
+.faBars:before {
+  content: "\f0c9";
+}
+
+.faStack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+.faStack[data-count]:after {
+  position: absolute;
+  left: 2rem;
+  bottom: 1rem;
+  content: attr(data-count);
+  font-size: 16px;
+  padding: 0.2em;
+  border-radius: 10px;
+  line-height: 0.95em;
+  color: white;
+  color: #bf160a;
+  text-align: center;
+  min-width: 1em;
+  font-weight: bold;
+  background: white;
+  border-style: solid;
+}
+
+.faStack1x,
+.faStack2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.faStack2x {
+  font-size: 2em;
+}
+
+/* Font Awesome :: END */
+
+/* Style Elements :: Start */
+
+.styleTag {
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+}
+
+/* List */
+.styleUl {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.styleUl li {
+  padding: 8px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.styleUl li:lastchild {
+  border-bottom: none;
+}
+
+/* List */
+
+/* Tooltip */
+.styleTooltip {
+  position: relative;
+}
+
+.styleTooltip .styleText {
+  display: none;
+}
+
+.styleTooltip:hover .styleText {
+  display: inline-block;
+}
+
+/* Tooltip */
+
+/* Colors :: START */
+.styleBlack {
+  color: #fff !important;
+  background-color: #000 !important;
+}
+
+.styleWhite {
+  color: #000 !important;
+  background-color: #fff !important;
+}
+
+.styleLightGrey {
+  color: #000 !important;
+  background-color: #f1f1f1 !important;
+}
+
+.styleTextGrey {
+  color: #757575 !important;
+}
+
+/* Colors :: END */
+
+h1,
+.fontSize36 {
+  font-size: 36px;
+}
+
+h2,
+.fontSize30 {
+  font-size: 30px;
+}
+
+h3,
+.fontSize24 {
+  font-size: 24px;
+}
+
+h4,
+.fontSize20 {
+  font-size: 20px;
+}
+
+h5,
+.fontSize18 {
+  font-size: 18px;
+}
+
+h6,
+.fontSize15 {
+  font-size: 15px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.letterSpacing4 {
+  letter-spacing: 4px;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.paddingTopBottom16 {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.paddingTopBottom24 {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+.paddingTopBottom64 {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+}
+
+.padding12px24px {
+  padding: 12px 24px !important;
+}
+
+.margin15 {
+  margin: 15px;
+}
+
+.marginRight16 {
+  margin-right: 16px !important;
+}
+.marginBottom5 {
+  margin-bottom: 5px !important;
+}
+.marginBottom20 {
+  margin-bottom: 20px !important;
+}
+
+.textAlignLeft {
+  text-align: left;
+}
+
+.displayNone {
+  display: none;
+}
+
+@media (min-width: 993px) {
+  .displayNoneOnLarge {
+    display: none !important;
+  }
+}
+@media (max-width: 992px) {
+  .displayNoneOnSmall {
+    display: none !important;
+  }
+}
+
+/* Style Elements :: End */

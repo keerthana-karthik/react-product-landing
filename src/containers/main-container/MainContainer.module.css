@@ -1,0 +1,191 @@
+.styleSidebar a {
+  font-family: "Roboto", sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.w3-wide {
+  font-family: "Montserrat", sans-serif;
+}
+
+footer,
+header,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+.imgLogo {
+  height: 50px;
+  /* border-radius: 15px; */
+}
+.pageContentWrapper {
+  transition: margin-left 0.4s;
+  margin-left: 250px;
+}
+
+.bodyWrapper {
+  margin-left: -8px;
+  margin-top: -8px;
+  max-width: 1600px;
+}
+
+.marginTop83 {
+  margin-top: 83px;
+}
+.toggleButton {
+  width: 1.5rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+.toggleBar {
+  background-color: #fff;
+  height: 0.15rem;
+  margin: 0.4rem 0;
+  display: block;
+}
+.styleSidebar {
+  height: 100%;
+  color: #000 !important;
+  background-color: #fff !important;
+  position: fixed !important;
+  overflow: auto;
+  z-index: 3;
+  width: 250px;
+  position: fixed;
+  top: 0;
+}
+
+.styleSidebarLinkWrapper {
+  color: #757575 !important;
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.styleBar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.styleCenter .styleBar {
+  display: inline-block;
+  width: auto;
+}
+
+.styleBar .styleBarItem {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.styleBar .styleDropdownHover,
+.styleBar .styleDropdownClick {
+  position: static;
+  float: left;
+}
+
+.styleBar .styleButton {
+  white-space: normal;
+}
+
+.styleBarBlock .styleBarItem {
+  width: 100%;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0;
+}
+
+.styleBarItem {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.styleBarIcons {
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 16px;
+}
+.styleBarIcons i {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.styleBarIcons i:hover {
+  border: 1px solid white;
+}
+.styleBarItem:hover {
+  color: #000 !important;
+  background-color: #ccc !important;
+}
+.styleBarItem:active,
+.styleBarItem.active {
+  color: #000 !important;
+  background-color: #ccc !important;
+}
+
+.styleBarBlock.styleCenter .styleBarItem {
+  text-align: center;
+}
+
+.styleBlock {
+  display: block;
+  width: 100%;
+}
+.imgLogoWrapper.styleBarItem:hover {
+  color: inherit !important;
+  background-color: inherit !important;
+  cursor: default !important;
+}
+@media (min-width: 993px) {
+  .w3-modal-content {
+    width: 900px;
+  }
+  .pageContentWrapper > header > p {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0px !important;
+  }
+  .styleSidebar {
+    display: block !important;
+    border-right: 1px solid #ddd;
+  }
+}
+
+@media (max-width: 992px) {
+  .styleSidebar {
+    display: none;
+  }
+
+  .pageContentWrapper {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
