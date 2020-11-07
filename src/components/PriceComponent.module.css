@@ -1,0 +1,13 @@
+.priceWrapper {
+  font-size: 16px;
+  /* margin-top: 8px;
+    margin-bottom: 2rem; */
+}
+.priceSymbol {
+  box-sizing: border-box;
+  position: relative;
+  font-size: 14px;
+}
+.price {
+  margin-left: 5px;
+}

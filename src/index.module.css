@@ -82,7 +82,7 @@
 
 .styleButton:hover {
   color: #000 !important;
-  background-color: #fff !important;
+  background-color: #ffffff40 !important;
 }
 .styleButton:focus {
   outline: none;
@@ -202,6 +202,20 @@ textarea {
   bottom: 0;
 }
 
+.overlayText {
+  background-color: #ccc5c578;
+  color: #676262;
+  font-weight: 600;
+  width: -webkit-fill-available;
+  padding: 10px;
+}
+
+.smallDarkOverlayText {
+  background-color: #4c4c4ce8;
+  color: #fff;
+  padding: 10px;
+}
+
 .positionOverlay {
   position: fixed;
   display: none;
@@ -238,7 +252,11 @@ textarea {
   right: 0;
   top: 0;
 }
-
+.positionDisplayBottom2left1 {
+  position: absolute;
+  left: 1em;
+  bottom: 2em;
+}
 .positionDisplayBottomleft {
   position: absolute;
   left: 0;
@@ -503,78 +521,6 @@ textarea {
 }
 
 /* Responsive Grid :: End */
-
-/* Font Awesome :: START */
-
-.fa {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.faShoppingCart:before {
-  content: "\f07a";
-}
-
-.faSearch:before {
-  content: "\f002";
-}
-
-.faRemove:before,
-.faClose:before,
-.faTimes:before {
-  content: "\f00d";
-}
-
-.faNavicon:before,
-.faReorder:before,
-.faBars:before {
-  content: "\f0c9";
-}
-
-.faStack {
-  position: relative;
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  line-height: 2em;
-  vertical-align: middle;
-}
-
-.faStack[data-count]:after {
-  position: absolute;
-  left: 2rem;
-  bottom: 1rem;
-  content: attr(data-count);
-  font-size: 16px;
-  padding: 0.2em;
-  border-radius: 10px;
-  line-height: 0.95em;
-  color: white;
-  color: #bf160a;
-  text-align: center;
-  min-width: 1em;
-  font-weight: bold;
-  background: white;
-  border-style: solid;
-}
-
-.faStack1x,
-.faStack2x {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  text-align: center;
-}
-
-.faStack2x {
-  font-size: 2em;
-}
-
-/* Font Awesome :: END */
 
 /* Style Elements :: Start */
 

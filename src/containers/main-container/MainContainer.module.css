@@ -34,7 +34,8 @@ section {
 .bodyWrapper {
   margin-left: -8px;
   margin-top: -8px;
-  max-width: 1600px;
+  max-width: 1800px;
+  font-family: sans-serif;
 }
 
 .marginTop83 {
@@ -143,13 +144,15 @@ section {
   border: 1px solid white;
 }
 .styleBarItem:hover {
-  color: #000 !important;
-  background-color: #ccc !important;
+  background-color: #00bcd436 !important;
+}
+.styleBarItem:hover {
+  outline: white auto 0.1px;
 }
 .styleBarItem:active,
 .styleBarItem.active {
-  color: #000 !important;
-  background-color: #ccc !important;
+  /* color: #000 !important; */
+  background-color: #00bcd436 !important;
 }
 
 .styleBarBlock.styleCenter .styleBarItem {

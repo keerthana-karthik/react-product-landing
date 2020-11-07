@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, NavLink, Switch, Redirect } from "react-router-dom";
 import { render } from "react-dom";
 
-import ListItemsComponent from "../../components/ListItemsComponent";
+import ProductsContainer from "../products-container/ProductsContainer";
 import mainClasses from "./MainContainer.module.css";
 import indexclasses from "../../index.module.css";
 
@@ -73,7 +73,40 @@ class MainContainer extends Component {
               className={mainClasses.styleBarItem}
               activeClassName={mainClasses.active}
             >
-              Kitchen
+              All Products
+            </NavLink>
+            <NavLink
+              key={"NavLink1"}
+              to={"/c1"}
+              onClick={this.onNavLinkClick}
+              className={mainClasses.styleBarItem}
+              activeClassName={mainClasses.active}
+            >
+              Category 1
+            </NavLink>
+            <NavLink
+              key={"NavLink2"}
+              to={"/c2"}
+              onClick={this.onNavLinkClick}
+              className={mainClasses.styleBarItem}
+            >
+              Category 2
+            </NavLink>
+            <NavLink
+              key={"NavLink3"}
+              to={"/c3"}
+              onClick={this.onNavLinkClick}
+              className={mainClasses.styleBarItem}
+            >
+              Category 3
+            </NavLink>
+            <NavLink
+              key={"NavLink4"}
+              to={"/c4"}
+              onClick={this.onNavLinkClick}
+              className={mainClasses.styleBarItem}
+            >
+              Category 4
             </NavLink>
           </div>
         </nav>
@@ -143,7 +176,7 @@ class MainContainer extends Component {
           {/* //   <!-- Image header --> */}
           <div className={[indexclasses.responsiveContainer].join(" ")}>
             <Switch>
-              <Route path="/all" exact component={ListItemsComponent} />
+              <Route path="/all" exact component={ProductsContainer} />
               <Redirect from="/" to="/all" />
               {/* <Route component={PageNotFoundComponent} /> */}
             </Switch>
