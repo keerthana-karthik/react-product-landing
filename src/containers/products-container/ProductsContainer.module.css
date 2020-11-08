@@ -3,3 +3,8 @@
   margin: 10px;
   padding: 5px;
 }
+.centerLoading {
+  left: 40%;
+  top: 30%;
+  position: fixed;
+}
