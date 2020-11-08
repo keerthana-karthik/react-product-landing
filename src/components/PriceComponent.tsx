@@ -13,11 +13,11 @@ const PriceComponent: React.SFC<Props> = (props) => {
     </div>
   ) : (
     <div className={priceClasses.priceWrapper}>
-      <span className={priceClasses.priceSymbol}>$</span>
+      (<span className={priceClasses.priceSymbol}>$</span>
       <span className={priceClasses.price}>{props.sellingPriceHigh}</span>
       <span className={priceClasses.priceSymbol}> - </span>
       <span className={priceClasses.priceSymbol}>$</span>
-      <span className={priceClasses.price}>{props.sellingPriceLow}</span>
+      <span className={priceClasses.price}>{props.sellingPriceLow}</span>)
     </div>
   );
 };

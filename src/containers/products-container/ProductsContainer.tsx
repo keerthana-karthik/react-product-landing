@@ -3,11 +3,10 @@ import { Route, NavLink, Switch, Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { render } from "react-dom";
-import ButtonComponent from "../../components/ButtonComponent";
+import CarouselComponent from "../../components/CarouselComponent";
 import PriceComponent from "../../components/PriceComponent";
 import productContainerClasses from "./ProductsContainer.module.css";
 import indexClasses from "../../index.module.css";
-import { Carousel } from "react-responsive-carousel";
 import { any } from "prop-types";
 
 interface Product {
@@ -29,18 +28,8 @@ class ProductsContainer extends Component {
     productArray: null,
     selectedProductImages: [],
   };
-  openCarousel = (images: any[]) => {
+  onImgClick = (images: any[]) => {
     this.setState({ selectedProductImages: images });
-    (document.getElementById("carouselSection") as HTMLElement).style.display =
-      "block";
-    (document.getElementById("carouselOverlay") as HTMLElement).style.display =
-      "block";
-  };
-  closeCarousel = () => {
-    (document.getElementById("carouselSection") as HTMLElement).style.display =
-      "none";
-    (document.getElementById("carouselOverlay") as HTMLElement).style.display =
-      "none";
   };
   componentDidMount() {
     let fetchedproducts: Product[] = [];
@@ -94,7 +83,11 @@ class ProductsContainer extends Component {
   render() {
     let productArray = this.state.productArray;
     let products;
-    if (productArray != null && productArray.length > 0) {
+    if (
+      productArray != null &&
+      productArray.length > 0 &&
+      !this.state.loading
+    ) {
       products = productArray.map((product) => {
         return (
           <div
@@ -121,7 +114,7 @@ class ProductsContainer extends Component {
                     indexClasses.cursorPointer,
                   ].join(" ")}
                   onClick={() => {
-                    this.openCarousel(product.images);
+                    this.onImgClick(product.images);
                   }}
                 ></img>
 
@@ -158,7 +151,7 @@ class ProductsContainer extends Component {
           </div>
         );
       });
-    } else {
+    } else if (this.state.loading) {
       products = (
         <div>
           <img
@@ -167,6 +160,8 @@ class ProductsContainer extends Component {
           />
         </div>
       );
+    } else {
+      products = <div>Error getting data</div>;
     }
 
     return (
@@ -187,25 +182,10 @@ class ProductsContainer extends Component {
           </p>
         </header>
         <div className={indexClasses.responsiveRow}>{products}</div>
-        <div
-          className={productContainerClasses.overlay}
-          id="carouselOverlay"
-          onClick={this.closeCarousel}
-        ></div>
-        <div
-          className={productContainerClasses.carouselWrapper}
-          id="carouselSection"
-        >
-          <Carousel>
-            {this.state.selectedProductImages.map((image) => {
-              return (
-                <div>
-                  <img src={image.href} />
-                </div>
-              );
-            })}
-          </Carousel>
-        </div>
+        <CarouselComponent
+          key={"CarouselComponent1"}
+          selectedProductImages={this.state.selectedProductImages}
+        ></CarouselComponent>
       </div>
     );
   }
