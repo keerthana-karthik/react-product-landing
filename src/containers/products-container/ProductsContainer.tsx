@@ -7,22 +7,47 @@ import ButtonComponent from "../../components/ButtonComponent";
 import PriceComponent from "../../components/PriceComponent";
 import productContainerClasses from "./ProductsContainer.module.css";
 import indexClasses from "../../index.module.css";
+import { Carousel } from "react-responsive-carousel";
 import { any } from "prop-types";
 
 interface Product {
   id: string;
   name: string;
   hero: { href: string };
-  sellingPrice: number;
+  sellingPrice?: number;
+  sellingPriceHigh?: number;
+  sellingPriceLow?: number;
+  images: [{ href: string }];
 }
 class ProductsContainer extends Component {
-  state: { productArray: Product[] | null; loading: boolean } = {
+  state: {
+    productArray: Product[] | null;
+    loading: boolean;
+    selectedProductImages: any[];
+  } = {
     loading: true,
     productArray: null,
+    selectedProductImages: [],
+  };
+  openCarousel = (images: any[]) => {
+    this.setState({ selectedProductImages: images });
+    (document.getElementById("carouselSection") as HTMLElement).style.display =
+      "block";
+    (document.getElementById("carouselOverlay") as HTMLElement).style.display =
+      "block";
+  };
+  closeCarousel = () => {
+    (document.getElementById("carouselSection") as HTMLElement).style.display =
+      "none";
+    (document.getElementById("carouselOverlay") as HTMLElement).style.display =
+      "none";
   };
   componentDidMount() {
     let fetchedproducts: Product[] = [];
+    let product: Product;
     let selP: number = 0;
+    let selPHigh: number = 0;
+    let selPLow: number = 0;
     this.setState({ loading: true });
     setTimeout(() => {
       axios
@@ -31,14 +56,29 @@ class ProductsContainer extends Component {
         )
         .then((res) => {
           for (let key in res.data.groups) {
-            if (res.data.groups[key].price) {
-              selP = res.data.groups[key].price.selling;
-            }
-            fetchedproducts.push({
+            product = {
               ...res.data.groups[key],
               id: key,
-              sellingPrice: selP,
-            });
+            };
+            if (res.data.groups[key].price) {
+              product.sellingPrice = res.data.groups[key].price.selling;
+            }
+            if (
+              res.data.groups[key].priceRange &&
+              res.data.groups[key].priceRange.selling
+            ) {
+              product.sellingPriceHigh =
+                res.data.groups[key].priceRange.selling.high;
+              product.sellingPriceLow =
+                res.data.groups[key].priceRange.selling.low;
+            }
+            if (
+              res.data.groups[key].images &&
+              res.data.groups[key].images.length == 0
+            ) {
+              product.images = [{ href: res.data.groups[key].hero.href }];
+            }
+            fetchedproducts.push(product);
           }
           this.setState({ productArray: fetchedproducts });
           this.setState({ loading: false });
@@ -73,16 +113,17 @@ class ProductsContainer extends Component {
                   productContainerClasses.productBox,
                 ].join(" ")}
               >
-                <Link
-                  key={"Link" + product.id}
-                  to={{ pathname: "/viewItem/" + "/" + product.id }}
-                >
-                  <img
-                    src={product.hero.href}
-                    alt="product image"
-                    className={indexClasses.width100}
-                  ></img>
-                </Link>
+                <img
+                  src={product.hero.href}
+                  alt="product image"
+                  className={[
+                    indexClasses.width100,
+                    indexClasses.cursorPointer,
+                  ].join(" ")}
+                  onClick={() => {
+                    this.openCarousel(product.images);
+                  }}
+                ></img>
 
                 <div
                   className={[
@@ -98,9 +139,19 @@ class ProductsContainer extends Component {
                     indexClasses.smallDarkOverlayText,
                   ].join(" ")}
                 >
-                  <PriceComponent key={"PriceComponent" + product.id}>
-                    {product.sellingPrice}
-                  </PriceComponent>
+                  {product.sellingPrice ? (
+                    <PriceComponent
+                      key={"PriceComponent" + product.id}
+                      sellingPrice={product.sellingPrice}
+                    ></PriceComponent>
+                  ) : null}
+                  {product.sellingPriceHigh ? (
+                    <PriceComponent
+                      key={"PriceComponent" + product.id}
+                      sellingPriceHigh={product.sellingPriceHigh}
+                      sellingPriceLow={product.sellingPriceLow}
+                    ></PriceComponent>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -136,6 +187,25 @@ class ProductsContainer extends Component {
           </p>
         </header>
         <div className={indexClasses.responsiveRow}>{products}</div>
+        <div
+          className={productContainerClasses.overlay}
+          id="carouselOverlay"
+          onClick={this.closeCarousel}
+        ></div>
+        <div
+          className={productContainerClasses.carouselWrapper}
+          id="carouselSection"
+        >
+          <Carousel>
+            {this.state.selectedProductImages.map((image) => {
+              return (
+                <div>
+                  <img src={image.href} />
+                </div>
+              );
+            })}
+          </Carousel>
+        </div>
       </div>
     );
   }

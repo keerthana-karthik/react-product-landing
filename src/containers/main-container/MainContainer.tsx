@@ -5,6 +5,8 @@ import { render } from "react-dom";
 import ProductsContainer from "../products-container/ProductsContainer";
 import mainClasses from "./MainContainer.module.css";
 import indexclasses from "../../index.module.css";
+import { Carousel } from "react-responsive-carousel";
+import productContainerClasses from "../products-container/ProductsContainer.module.css";
 
 interface AppState {
   name: string;
@@ -134,7 +136,7 @@ class MainContainer extends Component {
             ].join(" ")}
           >
             {" "}
-            Williams-Sonoma
+            WS
           </div>
           <a
             className={[
