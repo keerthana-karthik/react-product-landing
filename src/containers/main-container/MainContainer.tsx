@@ -1,16 +1,10 @@
 import React, { Component } from "react";
 import { Route, NavLink, Switch, Redirect } from "react-router-dom";
-import { render } from "react-dom";
-
+import PageNotFoundComponent from "../../components/PageNotFoundComponent";
 import ProductsContainer from "../products-container/ProductsContainer";
 import mainClasses from "./MainContainer.module.css";
 import indexclasses from "../../index.module.css";
-import { Carousel } from "react-responsive-carousel";
-import productContainerClasses from "../products-container/ProductsContainer.module.css";
-
-interface AppState {
-  name: string;
-}
+import { getCategoriesMap } from "../../utils/CommonHelper";
 
 class MainContainer extends Component {
   state = {
@@ -33,6 +27,19 @@ class MainContainer extends Component {
     this.closeSideBar();
   };
   render() {
+    const categories = getCategoriesMap().map((category) => {
+      return (
+        <NavLink
+          key={"NavLink" + category.key}
+          to={"/items/" + category.key}
+          onClick={this.onNavLinkClick}
+          className={mainClasses.styleBarItem}
+          activeClassName={mainClasses.active}
+        >
+          {category.value}
+        </NavLink>
+      );
+    });
     return (
       <div className={mainClasses.bodyWrapper}>
         {/* <!-- Sidebar/menu --> */}
@@ -62,6 +69,7 @@ class MainContainer extends Component {
             <div className={indexclasses.letterSpacing4}>
               <b>
                 <img
+                  alt="Logo"
                   src="https://res.cloudinary.com/imagesforwebpage/image/upload/v1604768585/WS_r65ahh.png"
                   className={mainClasses.imgLogo}
                 ></img>
@@ -80,39 +88,7 @@ class MainContainer extends Component {
             >
               All Products
             </NavLink>
-            <NavLink
-              key={"NavLink1"}
-              to={"/c1"}
-              onClick={this.onNavLinkClick}
-              className={mainClasses.styleBarItem}
-              activeClassName={mainClasses.active}
-            >
-              Category 1
-            </NavLink>
-            <NavLink
-              key={"NavLink2"}
-              to={"/c2"}
-              onClick={this.onNavLinkClick}
-              className={mainClasses.styleBarItem}
-            >
-              Category 2
-            </NavLink>
-            <NavLink
-              key={"NavLink3"}
-              to={"/c3"}
-              onClick={this.onNavLinkClick}
-              className={mainClasses.styleBarItem}
-            >
-              Category 3
-            </NavLink>
-            <NavLink
-              key={"NavLink4"}
-              to={"/c4"}
-              onClick={this.onNavLinkClick}
-              className={mainClasses.styleBarItem}
-            >
-              Category 4
-            </NavLink>
+            {categories}
           </div>
         </nav>
         {/* <!-- Top menu on small screens --> */}
@@ -183,7 +159,7 @@ class MainContainer extends Component {
             <Switch>
               <Route path="/all" exact component={ProductsContainer} />
               <Redirect from="/" to="/all" />
-              {/* <Route component={PageNotFoundComponent} /> */}
+              <Route component={PageNotFoundComponent} />
             </Switch>
           </div>
         </div>

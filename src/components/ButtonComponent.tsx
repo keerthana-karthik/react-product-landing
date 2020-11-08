@@ -1,5 +1,4 @@
 import React from "react";
-
 import indexClasses from "../index.module.css";
 
 interface buttonProps {

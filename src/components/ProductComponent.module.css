@@ -1,0 +1,5 @@
+.productBox {
+  box-shadow: 0 0 2em rgb(0 0 0 / 42%);
+  margin: 10px;
+  padding: 5px;
+}
