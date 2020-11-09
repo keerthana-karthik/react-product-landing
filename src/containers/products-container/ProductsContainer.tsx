@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ProductComponent from "../../components/ProductComponent";
-import CarouselComponent from "../../components/CarouselComponent";
+import ProductComponent from "../../components/product-component/ProductComponent";
+import CarouselComponent from "../../components/carousel-component/CarouselComponent";
 import productContainerClasses from "./ProductsContainer.module.css";
 import indexClasses from "../../index.module.css";
+import { Product } from "../../models/Product";
+import { formatResponseArray } from "../../utils/CommonHelper";
 
-interface Product {
-  id: string;
-  name: string;
-  hero: { href: string };
-  sellingPrice?: number;
-  sellingPriceHigh?: number;
-  sellingPriceLow?: number;
-  images: [{ href: string }];
-}
 class ProductsContainer extends Component {
   state: {
     productArray: Product[] | null;
@@ -36,31 +29,7 @@ class ProductsContainer extends Component {
         "https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json"
       )
       .then((res) => {
-        for (let key in res.data.groups) {
-          product = {
-            ...res.data.groups[key],
-            id: key,
-          };
-          if (res.data.groups[key].price) {
-            product.sellingPrice = res.data.groups[key].price.selling;
-          }
-          if (
-            res.data.groups[key].priceRange &&
-            res.data.groups[key].priceRange.selling
-          ) {
-            product.sellingPriceHigh =
-              res.data.groups[key].priceRange.selling.high;
-            product.sellingPriceLow =
-              res.data.groups[key].priceRange.selling.low;
-          }
-          if (
-            res.data.groups[key].images &&
-            res.data.groups[key].images.length === 0
-          ) {
-            product.images = [{ href: res.data.groups[key].hero.href }];
-          }
-          fetchedproducts.push(product);
-        }
+        fetchedproducts = formatResponseArray(res);
         this.setState({ productArray: fetchedproducts });
         this.setState({ loading: false });
       })
@@ -90,7 +59,7 @@ class ProductsContainer extends Component {
       });
     } else if (this.state.loading) {
       products = (
-        <div>
+        <div test-attr="loadingGif">
           <img
             alt="loading"
             className={productContainerClasses.centerLoading}
@@ -100,7 +69,7 @@ class ProductsContainer extends Component {
       );
     } else {
       products = (
-        <h4 style={{ textAlign: "center" }}>
+        <h4 test-attr="techError" style={{ textAlign: "center" }}>
           Sorry. We couldn't load the products. Please try again after some
           time.
         </h4>

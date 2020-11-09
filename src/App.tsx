@@ -4,7 +4,7 @@ import MainContainer from "./containers/main-container/MainContainer";
 
 function App() {
   return (
-    <BrowserRouter basename="/product-landing">
+    <BrowserRouter basename="/">
       <MainContainer></MainContainer>
     </BrowserRouter>
   );

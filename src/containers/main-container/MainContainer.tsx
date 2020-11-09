@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, NavLink, Switch, Redirect } from "react-router-dom";
-import PageNotFoundComponent from "../../components/PageNotFoundComponent";
+import PageNotFoundComponent from "../../components/page-component/PageNotFoundComponent";
 import ProductsContainer from "../products-container/ProductsContainer";
 import mainClasses from "./MainContainer.module.css";
 import indexclasses from "../../index.module.css";
@@ -158,8 +158,12 @@ class MainContainer extends Component {
           {/* //   <!-- Image header --> */}
           <div className={[indexclasses.responsiveContainer].join(" ")}>
             <Switch>
-              <Route path="/all" exact component={ProductsContainer} />
-              <Redirect from="/" to="/all" />
+              <Route
+                path="/product-landing"
+                exact
+                component={ProductsContainer}
+              />
+              <Redirect from="/" to="/product-landing" />
               <Route component={PageNotFoundComponent} />
             </Switch>
           </div>

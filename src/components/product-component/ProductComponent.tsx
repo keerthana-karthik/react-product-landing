@@ -1,16 +1,9 @@
 import React, { useEffect } from "react";
-import PriceComponent from "./PriceComponent";
-import indexClasses from "../index.module.css";
+import PriceComponent from "../price-component/PriceComponent";
+import indexClasses from "../../index.module.css";
 import productComponentClasses from "./ProductComponent.module.css";
-interface Product {
-  id: string;
-  name: string;
-  hero: { href: string };
-  sellingPrice?: number;
-  sellingPriceHigh?: number;
-  sellingPriceLow?: number;
-  images: { href: string }[];
-}
+import { Product } from "../../models/Product";
+
 interface Props {
   key?: string;
   product: Product;

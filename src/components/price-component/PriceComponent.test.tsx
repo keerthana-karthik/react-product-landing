@@ -1,8 +1,9 @@
 import React from "react";
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { findByTestAtrr } from "../testHelpers/testHelper";
+import { findByTestAtrr } from "../../testHelpers/testHelper";
 import PriceComponent from "./PriceComponent";
+
 interface Props {
   sellingPrice?: number;
   sellingPriceHigh?: number;
@@ -29,6 +30,7 @@ describe("Has 2 props", () => {
     expect(wrapdiv.length).toBe(1);
   });
 });
+
 describe("Has 1 prop", () => {
   let wrapper: any;
   beforeEach(() => {

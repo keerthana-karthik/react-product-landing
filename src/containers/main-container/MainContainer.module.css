@@ -135,6 +135,7 @@ section {
   cursor: pointer;
   display: inline-block;
   padding: 8px 16px;
+  color: #fff;
 }
 .styleBarIcons i {
   padding-left: 4px;
