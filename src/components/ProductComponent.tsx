@@ -9,7 +9,7 @@ interface Product {
   sellingPrice?: number;
   sellingPriceHigh?: number;
   sellingPriceLow?: number;
-  images: [{ href: string }];
+  images: { href: string }[];
 }
 interface Props {
   key?: string;

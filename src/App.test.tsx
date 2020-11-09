@@ -1,9 +1,9 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import ReactDOM from "react-dom";
+// import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Test/i);
-  expect(linkElement).toBeInTheDocument();
+it("renders App without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<App />, div);
 });

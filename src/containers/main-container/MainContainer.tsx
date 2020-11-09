@@ -115,6 +115,7 @@ class MainContainer extends Component {
             WS
           </div>
           <a
+            href="/"
             className={[
               mainClasses.styleBarIcons,
               indexclasses.positionRight,

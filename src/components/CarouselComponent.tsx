@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import carouselClasses from "./CarouselComponent.module.css";
 
 interface Props {
-  key: string;
+  key?: string;
   selectedProductImages: any[];
 }
 
@@ -18,9 +18,6 @@ const CarouselComponent: React.SFC<Props> = (props) => {
       ) as HTMLElement).style.display = "block";
     }
   }, [props.selectedProductImages]);
-  let openCarousel = (images: any[]) => {
-    props.selectedProductImages = images;
-  };
   let closeCarousel = () => {
     (document.getElementById("carouselSection") as HTMLElement).style.display =
       "none";
@@ -39,7 +36,7 @@ const CarouselComponent: React.SFC<Props> = (props) => {
           {props.selectedProductImages.map((image, index) => {
             return (
               <div key={"courelimg" + index}>
-                <img src={image.href} />
+                <img alt="product" src={image.href} />
               </div>
             );
           })}

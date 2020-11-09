@@ -82,6 +82,7 @@ class ProductsContainer extends Component {
       products = productArray.map((product) => {
         return (
           <ProductComponent
+            key={"ProductComponent" + product.id}
             product={product}
             onImgClick={this.onImgClickHandler}
           ></ProductComponent>

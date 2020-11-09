@@ -14,8 +14,9 @@ export const getCategoryDisplayName = (key: string) => {
   let categoryValue = "";
   categoryDisplayNameMap.map((category) => {
     if (key === category.key) {
-      categoryValue = category.value;
+      return (categoryValue = category.value);
     }
+    return categoryValue;
   });
   return categoryValue;
 };
