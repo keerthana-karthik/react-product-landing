@@ -8,7 +8,7 @@ To start server
 ### `npm start`
 
 To create build for Prod
-### `npm react-scripts build`
+### `npm run-script build`
 
 To test
 ### `npm test`

@@ -2,6 +2,7 @@
   "name": "react-product-landing",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://www.westelm.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -20,6 +21,7 @@
     "lint-staged": "^10.5.1",
     "prettier": "^2.1.2",
     "react": "^17.0.1",
+    "react-app-polyfill": "^2.0.0",
     "react-dom": "^17.0.1",
     "react-responsive-carousel": "^3.2.10",
     "react-router": "^5.2.0",
@@ -57,6 +59,7 @@
       "not op_mini all"
     ],
     "development": [
+      "ie 11",
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
