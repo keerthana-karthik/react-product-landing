@@ -24,9 +24,10 @@ class ProductsContainer extends Component {
     let fetchedproducts: Product[] = [];
     let product: Product;
     this.setState({ loading: true });
+    // "https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json"
     axios
       .get(
-        "https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json"
+        "https://my-json-server.typicode.com/keerthana-karthik/react-product-landing"
       )
       .then((res) => {
         fetchedproducts = formatResponseArray(res);

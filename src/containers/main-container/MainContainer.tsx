@@ -112,7 +112,7 @@ class MainContainer extends Component {
             ].join(" ")}
           >
             {" "}
-            WS
+            Williams-Sonoma
           </div>
           <a
             href="/"

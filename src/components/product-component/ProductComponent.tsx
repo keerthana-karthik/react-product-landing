@@ -3,6 +3,7 @@ import PriceComponent from "../price-component/PriceComponent";
 import indexClasses from "../../index.module.css";
 import productComponentClasses from "./ProductComponent.module.css";
 import { Product } from "../../models/Product";
+import parse from "html-react-parser";
 
 interface Props {
   key?: string;
@@ -14,6 +15,10 @@ const ProductComponent: React.SFC<Props> = (props) => {
   useEffect(() => {}, []);
 
   let product = props.product;
+  let name: string = product.name;
+  if (name) {
+    name = name.toUpperCase();
+  }
   return (
     <div
       key={"div" + product.id}
@@ -24,7 +29,12 @@ const ProductComponent: React.SFC<Props> = (props) => {
         indexClasses.s12,
       ].join(" ")}
     >
-      <div className={indexClasses.responsiveContainer}>
+      <div
+        className={[
+          indexClasses.responsiveContainer,
+          productComponentClasses.paddingTop2em,
+        ].join(" ")}
+      >
         <div
           className={[
             indexClasses.positionDisplayContainer,
@@ -48,7 +58,8 @@ const ProductComponent: React.SFC<Props> = (props) => {
               indexClasses.overlayText,
             ].join(" ")}
           >
-            {product.name}
+            {/* Warning: Setting HTML from code is risky because it’s easy to inadvertently expose your users to a cross-site scripting (XSS) attack. */}
+            {parse(name)}
           </div>
           <div
             className={[

@@ -203,10 +203,10 @@ textarea {
 }
 
 .overlayText {
-  background-color: #ffffffd1;
-  color: #676262;
+  background-color: #eeeeeeed;
+  color: #2d2d2dc7;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 0.8em;
   width: -webkit-fill-available;
   padding: 10px;
   white-space: nowrap;
